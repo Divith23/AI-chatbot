@@ -32,7 +32,7 @@ function Signup() {
 
       const response = await fetch(
 
-        "http://127.0.0.1:8000/signup",
+        "https://ai-chatbot-6g4t.onrender.com/signup",
 
         {
 

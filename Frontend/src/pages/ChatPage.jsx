@@ -30,7 +30,7 @@ function ChatPage() {
 
   async function loadConversations(pageNumber = 1) {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/conversations?page=${pageNumber}&limit=10`, {
+      const response = await fetch(`https://ai-chatbot-6g4t.onrender.com/conversations?page=${pageNumber}&limit=10`, {
         headers: authHeaders,
       });
       const data = await response.json();
@@ -52,7 +52,7 @@ function ChatPage() {
 
   async function loadConversationMessages(conversationId) {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/conversation/${conversationId}`, {
+      const response = await fetch(`https://ai-chatbot-6g4t.onrender.com/conversation/${conversationId}`, {
         headers: authHeaders,
       });
       const data = await response.json();
@@ -65,7 +65,7 @@ function ChatPage() {
 
   async function createConversation() {
     try {
-      const response = await fetch("http://127.0.0.1:8000/conversation", {
+      const response = await fetch("https://ai-chatbot-6g4t.onrender.com/conversation", {
         method: "POST",
         headers: authHeaders,
       });
@@ -86,7 +86,7 @@ function ChatPage() {
     setIsTyping(true);
 
     try {
-      const response = await fetch(`http://127.0.0.1:8000/chat/${currentConversationId}`, {
+      const response = await fetch(`https://ai-chatbot-6g4t.onrender.com/chat/${currentConversationId}`, {
         method: "POST",
         headers: authHeaders,
         body: JSON.stringify({ text }),
@@ -102,7 +102,7 @@ function ChatPage() {
 
   async function deleteConversation(conversationId) {
     try {
-      await fetch(`http://127.0.0.1:8000/conversation/${conversationId}`, {
+      await fetch(`https://ai-chatbot-6g4t.onrender.com/conversation/${conversationId}`, {
         method: "DELETE",
         headers: authHeaders,
       });
