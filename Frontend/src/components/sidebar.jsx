@@ -2,38 +2,43 @@ function Sidebar({
     conversationList, createConversation, loadConversationMessages, deleteConversation, loadMoreConversations, logout}) {
         return (
             <div style={{
-                width: "250px",
+                width: "260px",
+                minWidth: "260px",
+                height: "100vh",
                 backgroundColor: "#202123",
                 color: "white",
-                padding: "10px",
-                overflowY: "auto",
+                padding: "15px",
+                overflowY: "hidden",
                 display: "flex",
                 flexDirection: "column",
+                boxSizing: "border-box",
             }}>
             
             <button onClick={logout}
              style={{
-                width:"250px",
-                padding:"10px",
+                padding:"12px",
                 marginBottom:"10px",
-                cursor:"pointer",
-                borderRadius:"5px",
                 border:"none",
+                cursor:"pointer",
+                borderRadius:"8px",
+                backgroundColor: "#3b3b3b",
+                color: "white",
             }}>Log out</button>
 
             <button onClick={createConversation}
             style={{
-                width:"250px",
-                padding:"10px",
-                marginBottom:"10px",
+                padding:"12px",
+                marginBottom:"15px",
                 cursor:"pointer",
                 borderRadius:"5px",
                 border:"none",
+                backgroundColor: "#3b3b3b",
+                color: "white",
             }}> + New Chat </button>
 
             
 
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, overflowY: "auto", overflowX: "hidden" }}>
             {
                 conversationList.map((conversation) => (
                     <div key={conversation.id}
@@ -47,13 +52,19 @@ function Sidebar({
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems:"center",
-                        padding: "10px",
-                        marginBottom: "5px",
+                        padding: "12px",
+                        marginBottom: "10px",
                         backgroundColor: "#343541",
                         cursor: "pointer",
-                        borderRadius: "5px",
+                        borderRadius: "8px",
                     }}>
-                        {conversation.title}
+                        <span style={{
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            whiteSpace: "nowrap",
+                            maxWidth: "180px",
+                        }}>
+                        {conversation.title}</span>
 
             
 
@@ -76,12 +87,13 @@ function Sidebar({
 
             <button onClick={loadMoreConversations}
             style={{
-                width:"100%",
-                padding:"10px",
-                marginTop:"10px",
+                padding:"12px",
+                marginTop:"15px",
                 cursor:"pointer",
-                borderRadius: "5px",
+                borderRadius: "8px",
                 border: "none",
+                backgroundColor: "#3b3b3b",
+                color: "white",
             }}>Load More</button>
             </div>
         );

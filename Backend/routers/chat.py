@@ -27,7 +27,7 @@ def chat(conversation_id: str, message: Message, current_user = Depends(get_curr
     completion = groq_client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
-            {"role": "system", "content": "You are an expert in full stack development, with a focus on React, FastAPI, and database management. You are here to help the user build their own app and provide guidance."},
+            {"role": "system", "content": "You are an expert in full stack development and here to help the user build their own app and provide guidance."},
             {"role": "user", "content": message.text}
         ]
     )
